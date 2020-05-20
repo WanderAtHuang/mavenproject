@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+</head>
+<body>
+<form id="form">
+    <table>
+        <tr>
+            <td>
+                <h6>注册新用户</h6>
+
+
+            </td>
+            <td>
+                用户名：<input type="text" id="username1"/><br>
+            </td>
+            <td>
+                密码：  <input type="password" id="password1" /><br>
+            </td>
+            <td>
+                性别：  <input type="radio" name="Sex" value="male" checked="checked"/> male
+                <input type="radio" name="Sex" value="female"/> female<br>
+            </td>
+            <td>
+                兴趣爱好：  <input type="checkbox" name="items" value="足球" />足球
+                <input type="checkbox" name="items" value="篮球"/>篮球
+                <input type="checkbox" name="items" value="羽毛球"/>羽毛球
+                <input type="checkbox" name="items" value="乒乓球"/>乒乓球
+                <br>
+                <input type="button" name="checkall" id="checkall" value="全选">
+                <input type="button" name="checkall" id="checknoall" value="全不选">
+                <input type="button" name="checkall" id="checkrereversal" value="反选">
+                <br>
+
+            </td>
+            <td>
+                <input type="button" value="提交" id="submit1"/><br>
+            </td>
+        </tr>
+
+    </table>
+
+</form>
+</body>
+<script type="text/javascript">
+    document.getElementById("checkall").onclick=function () {
+        let checkElements=document.getElementsByName('items');
+        for(let i=0;i<checkElements.length;i++){
+            let checkElement = checkElements[i];
+
+            checkElement.checked="checked";
+        }
+    }
+    document.getElementById("checknoall").onclick=function () {
+        let checkElements=document.getElementsByName('items');
+        for(let i=0;i<checkElements.length;i++){
+            let checkElement = checkElements[i];
+
+            checkElement.checked=null;
+        }
+        document.getElementById('checkrereversal').onclick=function(){
+            let checkElements=document.getElementsByName('items');
+            for(let i=0;i<checkElements.length;i++){
+                let checkElement=checkElements[i];
+                if (checkElement.checked) {
+                    checkElement.checked=null;
+                }
+                else{
+                    checkElement.checked="checked";
+                }
+
+            }
+        }
+        document.getElementById("submit1").onclick=function () {
+            let username=document.getElementById("username1").value;
+            alert(username);
+
+            }
+
+
+    }
+</script>
+</html>
